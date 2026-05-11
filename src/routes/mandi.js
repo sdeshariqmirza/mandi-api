@@ -28,4 +28,15 @@ router.get('/prices/crop/:crop', async (req, res) => {
   res.json(result);
 });
 
+//Filter by district
+router.get('/prices/district/:district', async (req, res) => {
+    const data = await fetchMandiData();
+    const result = data.filter(
+        item => item.district.toLowerCase() === req.params.district.toLowerCase()
+    );
+    if (result.length === 0) return res.status(404).json({ error: 'District not found' });
+    res.json(result);
+    
+})
+
 module.exports = router;
