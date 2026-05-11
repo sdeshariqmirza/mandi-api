@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 const API_URL = 'https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070';
-const API_KEY = '579b464db66ec23bdd000001a0846edacaae476e5d3d1edc4802575a';
+const API_KEY = process.env.DATA_GOV_API_KEY;
 
 async function fetchMandiData() {
   try {
